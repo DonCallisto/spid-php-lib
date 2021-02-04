@@ -121,7 +121,7 @@ Generate a settings array following this guideline
 
 ```php
 $settings = array(
-    'sp_entityid' => SP_BASE_URL, // preferred: https protocol, no trailing slash, example: https://sp.example.com/
+    'sp_entityid' => SP_BASE_URL, // preferred: https protocol, no trailing slash, example: https://sp.example.com
     'sp_key_file' => '/path/to/sp.key',
     'sp_cert_file' => '/path/to/sp.crt',
     'sp_comparison' => 'exact', // one of: "exact", "minimum", "better" or "maximum"
@@ -219,7 +219,7 @@ The method will redirect to the IdP Single Logout page, or return false if you a
 |getIdp(string $filename)|alias of `loadIdpFromFile`|
 |getSPMetadata() : string|returns the SP metadata as a string|
 |login(string $idpFilename, int $assertID, int $attrID, $level = 1, string $redirectTo = null, $shouldRedirect = true)|login with REDIRECT binding. Use `$idpFilename` to select in IdP for login by indicating the name (without extension) of an XML file in your `idp_metadata_folder`. `$assertID` and `$attrID` indicate respectively the array index of `sp_assertionconsumerservice` and `sp_attributeconsumingservice` provided in settings. Optional parameters: `$level` for SPID authentication level (1, 2 or 3), `$redirectTo` to indicate an url to redirect to after login, `$shouldRedirect` to indicate if the login function should automatically redirect to the IdP or should return the login url as a string|
-|loginPost(string $idpName, int $ass, int $attr, $level = 1, string $redirectTo = null, $shouldRedirect = true)|like login, but uses POST binding|
+|loginPost(string $idpFilename, int $assertID, int $attrID, $level = 1, string $redirectTo = null, $shouldRedirect = true)|like login, but uses POST binding|
 |logout(int $slo, string $redirectTo = null, $shouldRedirect = true)|logout with REDIRECT binding. `$slo` indicates the array index of the `sp_singlelogoutservice` provided in settings. Optional parameters: `$redirectTo` to indicate an url to redirect to after login, `$shouldRedirect` to indicate if the login function should automatically redirect to the IdP or should return the login url as a string|
 |logoutPost(int $slo, string $redirectTo = null, $shouldRedirect = true)|like logout, but uses POST binding|
 |isAuthenticated() : bool|checks if the user is authenticated. This method **MUST** be called after login and logout to finalize the operation.|
